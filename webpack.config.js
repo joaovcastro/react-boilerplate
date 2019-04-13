@@ -40,9 +40,5 @@ const server = {
   module: moduleObj,
 };
 
-module.exports = (_, arg) => {
-  console.log('------------------------------------------------------');
-  console.log('env', arg.mode);
-  console.log('------------------------------------------------------');
-  return arg.mode === 'development' ? [client] : [client, server];
-};
+module.exports = (_, arg) =>
+  arg.mode === 'development' ? [client] : [client, server];
