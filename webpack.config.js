@@ -1,9 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 let path = require('path');
-// let nodeExternals = require('webpack-node-externals');
 
 const moduleObj = {
-  loaders: [
+  rules: [
     {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -41,4 +40,9 @@ const server = {
   module: moduleObj,
 };
 
-module.exports = [client, server];
+module.exports = (_, arg) => {
+  console.log('------------------------------------------------------');
+  console.log('env', arg.mode);
+  console.log('------------------------------------------------------');
+  return arg.mode === 'development' ? [client] : [client, server];
+};

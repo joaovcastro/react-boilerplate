@@ -12,11 +12,11 @@
     "start": "node ./dist/server.js",
     "nodemon": "nodemon ./src/client/index.js",
     "test": "jest ./src",
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open --mode=development --config ./webpack.config.js"
   },
   "jest": {
     "setupFilesAfterEnv": [
-       "./src/enzyme.setup.js"
+      "./src/enzyme.setup.js"
     ],
     "setupFiles": [
       "raf/polyfill"
@@ -54,10 +54,10 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.4.3",
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
@@ -72,6 +72,8 @@
     "react-router-dom": "^4.4.0-beta.8",
     "react-test-renderer": "^16.8.6",
     "redux-thunk": "^2.3.0",
-    "webpack": "^3.12.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
   }
 }
